@@ -1,0 +1,15 @@
+services:
+    phpbbseo.pwa.controller:
+        class: phpbbseo\pwa\controller\main
+        arguments:
+            - '@config'
+            - '@controller.helper'
+            - '@template'
+            - '@user'
+    phpbbseo.pwa.listener:
+        class: phpbbseo\pwa\event\main_listener
+        arguments:
+            - '@controller.helper'
+            - '@template'
+        tags:
+            - { name: event.listener }
